@@ -10,17 +10,15 @@ class MeserosController extends AppController{
 
     }
 
-    
-
     public function ver($id=null){
 
         if(!$id){
-            throw new NotFoundException('Datos invalidos');
+            throw new NotFoundException('No existe el Id');
         }
         $mesero = $this->Mesero->findByid($id);
 
         if(!$mesero){
-            throw new NotFoundException('no encontrado');
+            throw new NotFoundException('el usuario no fue encontrado');
         }
         $this-> set('mesero', $mesero);
     }
@@ -52,12 +50,13 @@ class MeserosController extends AppController{
         }
     
         if ($this->request->is(array('post', 'put'))) {
+
             $this->Mesero->id = $id;
             if ($this->Mesero->save($this->request->data)) {
                 $this->Flash->success(__('Your waiter has been updated.'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Flash->error(__('Unable to update your post.'));
+            $this->Flash->error(__('Unable to update your user.'));
         }
     
         if (!$this->request->data) {
@@ -65,8 +64,8 @@ class MeserosController extends AppController{
         }
     }
 
-    function delete($id) {
-        if (!$this->request->is('get')) {
+    public function delete($id) {
+        if ($this->request->is('get')) {
             throw new MethodNotAllowedException('¡ INCORRECTO !');
         }
         if ($this->Mesero->delete($id)) {
