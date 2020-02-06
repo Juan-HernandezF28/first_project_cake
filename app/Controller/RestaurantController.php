@@ -10,5 +10,6 @@ class RestaurantController extends AppController{
     public function meseros(){
         $this->redirect(array('controller' => "meseros", "action" => "index"));
     }
+
 }
 ?>

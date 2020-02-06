@@ -26,7 +26,7 @@
                     <?php echo $this->Form->input('telefono', array('class' => "form-control")); ?> 
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Enviar!</button>
+                        <button type="submit" class="btn btn-success">Enviar</button>
                     </div>
                     
                 </div>

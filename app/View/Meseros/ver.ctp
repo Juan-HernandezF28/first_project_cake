@@ -15,3 +15,34 @@
         </div>
     </div>
 </div>
+
+<!--
+<pre>
+</pre>
+-->
+<div class='container pt-4'>
+    <div class='row'>
+        <div class='col-md-4 mx-auto'>
+            <div class='card'>
+                <div class='card-body'>
+                    <h3><strong> Encargado de las mesas: </strong></h3>
+                    <?php if (empty($mesero['Mesa'])): ?>
+                        <p> No tiene mesas asociados </p>
+                    <?php endif ?>
+
+                    <?php foreach($mesero['Mesa'] as $m): ?>
+                        <p>
+                            <?php echo $m['serie']; ?>
+                                <br/>
+                                    <?php echo $m['puestos']; ?>
+                                <br/>
+                                    <?php echo $m['posicion']; ?>
+                                <br/>
+                                    <?php echo $m['created']; ?>
+                        </p>    
+                    <?php endforeach ?>
+                </div>    
+            </div>     
+        </div>
+    </div>        
+</div

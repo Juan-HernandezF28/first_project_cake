@@ -41,12 +41,12 @@ class MeserosController extends AppController{
 
     public function edit($id = null) {
         if (!$id) {
-            throw new NotFoundException(__('Invalid post'));
+            throw new NotFoundException(__('No hay concidencias.'));
         }
     
         $mesero = $this->Mesero->findById($id);
         if (!$mesero) {
-            throw new NotFoundException(__('Invalid post'));
+            throw new NotFoundException(__('El mesero no fue encontrado'));
         }
     
         if ($this->request->is(array('post', 'put'))) {
